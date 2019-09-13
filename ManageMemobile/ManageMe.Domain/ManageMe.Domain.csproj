@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D91A54AE-18E3-4332-8C83-2E6AF1927948}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ManageMe.Domain</RootNamespace>
+    <AssemblyName>ManageMe.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Activity.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Agent.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspNetRoles.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspNetUserClaims.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspNetUserLogins.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AspNetUsers.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HOA.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\HomeInsurance.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Issue.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Lease.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_Activity_SupportingDoc.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_Address.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_DocType.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_IssueReportMethod.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_LeaseDoc.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_Lender.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_Object.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_ObjectAttribute.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_ObjectAttributeType.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\LU_ServiceAgent.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\ManageMeEntities.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Entities\Mortgage.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Provider.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Renter.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RenterIdentityDocument.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\REPropertyTax.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\RProperty.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\USP_File_Add_Result.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\USP_File_Update_Result.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\USP_Renter_Find_Result.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\UtilityCompany.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\vw_SupportingDoc.cs">
+      <DependentUpon>ManageMeEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\ActivityType.cs" />
+    <Compile Include="Enums\BusinessObject.cs" />
+    <Compile Include="Enums\LeaseStatus.cs" />
+    <Compile Include="PartialModels\Provider.cs" />
+    <Compile Include="PartialModels\Renter.cs" />
+    <Compile Include="PartialModels\RenterIdentityDocument.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Entities\ManageMeEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ManageMeEntities.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
