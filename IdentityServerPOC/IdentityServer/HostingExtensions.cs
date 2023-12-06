@@ -1,5 +1,8 @@
 using Duende.IdentityServer;
+using Duende.IdentityServer.EntityFramework.DbContexts;
+using Duende.IdentityServer.EntityFramework.Mappers;
 using IdentityServerHost;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
 
@@ -10,21 +13,28 @@ internal static class HostingExtensions
     public static WebApplication ConfigureServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddRazorPages();
-
+        //set up sql for configuration
+        var migrationsAssembly = typeof(Program).Assembly.GetName().Name;
+        const string connectionString = @"Data source=192.168.100.89;initial catalog=IdentityServerConfig;User ID=eFilingAppUser; Password=@dm1nP@ssSQL; MultipleActiveResultSets=true;MultiSubnetFailover=False;Encrypt=False";
+        const string connectionStringPersist = @"Data source=192.168.100.89;initial catalog=IdentityServerPersist;User ID=eFilingAppUser; Password=@dm1nP@ssSQL; MultipleActiveResultSets=true;MultiSubnetFailover=False;Encrypt=False";
         builder.Services.AddIdentityServer()
-            .AddInMemoryIdentityResources(Config.IdentityResources)
-            .AddInMemoryApiScopes(Config.ApiScopes)
-            .AddInMemoryClients(Config.Clients)
+             .AddConfigurationStore(options =>
+             {
+                 options.ConfigureDbContext = b => b.UseSqlServer(connectionString,
+                     sql => sql.MigrationsAssembly(migrationsAssembly));
+             })
+            .AddOperationalStore(options =>
+            {
+                options.ConfigureDbContext = b => b.UseSqlServer(connectionStringPersist,
+                    sql => sql.MigrationsAssembly(migrationsAssembly));
+            })
+            //.AddInMemoryIdentityResources(Config.IdentityResources)
+            //.AddInMemoryApiScopes(Config.ApiScopes)
+            //.AddInMemoryClients(Config.Clients)
             .AddTestUsers(TestUsers.Users);
 
         builder.Services.AddAuthentication()
-            .AddGoogle("Google", options =>
-            {
-                options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
-
-                options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
-                options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
-            })
+            
             .AddOpenIdConnect("oidc", "Demo IdentityServer", options =>
             {
                 options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
@@ -45,7 +55,7 @@ internal static class HostingExtensions
 
         return builder.Build();
     }
-    
+   
     public static WebApplication ConfigurePipeline(this WebApplication app)
     { 
         app.UseSerilogRequestLogging();
@@ -53,7 +63,7 @@ internal static class HostingExtensions
         {
             app.UseDeveloperExceptionPage();
         }
-
+       
         app.UseStaticFiles();
         app.UseRouting();
             
