@@ -14,27 +14,31 @@ internal static class HostingExtensions
     {
         builder.Services.AddRazorPages();
         //set up sql for configuration
-        var migrationsAssembly = typeof(Program).Assembly.GetName().Name;
+        
         const string connectionString = @"Data source=192.168.100.89;initial catalog=IdentityServerConfig;User ID=eFilingAppUser; Password=@dm1nP@ssSQL; MultipleActiveResultSets=true;MultiSubnetFailover=False;Encrypt=False";
         const string connectionStringPersist = @"Data source=192.168.100.89;initial catalog=IdentityServerPersist;User ID=eFilingAppUser; Password=@dm1nP@ssSQL; MultipleActiveResultSets=true;MultiSubnetFailover=False;Encrypt=False";
-        builder.Services.AddIdentityServer()
+        builder.Services
+             .AddIdentityServer(options =>
+             {
+                 options.Events.RaiseErrorEvents = true;
+                 options.Events.RaiseInformationEvents = true;
+                 options.Events.RaiseFailureEvents = true;
+                 options.Events.RaiseSuccessEvents = true;
+                 options.EmitStaticAudienceClaim = true;
+             })
              .AddConfigurationStore(options =>
              {
-                 options.ConfigureDbContext = b => b.UseSqlServer(connectionString,
-                     sql => sql.MigrationsAssembly(migrationsAssembly));
+                 options.ConfigureDbContext = b => b.UseSqlServer(connectionString);
              })
             .AddOperationalStore(options =>
             {
-                options.ConfigureDbContext = b => b.UseSqlServer(connectionStringPersist,
-                    sql => sql.MigrationsAssembly(migrationsAssembly));
+                options.ConfigureDbContext = b => b.UseSqlServer(connectionStringPersist);
+                options.EnableTokenCleanup = true;
+                options.RemoveConsumedTokens = true;
             })
-            //.AddInMemoryIdentityResources(Config.IdentityResources)
-            //.AddInMemoryApiScopes(Config.ApiScopes)
-            //.AddInMemoryClients(Config.Clients)
             .AddTestUsers(TestUsers.Users);
 
         builder.Services.AddAuthentication()
-            
             .AddOpenIdConnect("oidc", "Demo IdentityServer", options =>
             {
                 options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;

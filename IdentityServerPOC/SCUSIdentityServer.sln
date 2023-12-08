@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{8965E668-8ED0-4E4C-832A-12FE4A9C5871}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration", "Configuration\Configuration.csproj", "{BFD9F633-EEF8-45FF-9756-C413F71B282A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{8965E668-8ED0-4E4C-832A-12FE4A9C5871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8965E668-8ED0-4E4C-832A-12FE4A9C5871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8965E668-8ED0-4E4C-832A-12FE4A9C5871}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFD9F633-EEF8-45FF-9756-C413F71B282A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFD9F633-EEF8-45FF-9756-C413F71B282A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFD9F633-EEF8-45FF-9756-C413F71B282A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFD9F633-EEF8-45FF-9756-C413F71B282A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

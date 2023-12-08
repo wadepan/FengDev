@@ -7,7 +7,7 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateBootstrapLogger();
 
-Log.Information("Starting up");
+Log.Information("SCUS Identity Server Starting up");
 
 try
 {
