@@ -15,8 +15,8 @@ internal static class HostingExtensions
     {
         builder.Services.AddRazorPages();
 
-        var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
+        var connectionStringConfig = builder.Configuration.GetConnectionString("ConfigConnection");
+        var connectionStringPersist = builder.Configuration.GetConnectionString("PersistConnection");
         var isBuilder = builder.Services
             .AddIdentityServer(options =>
             {
@@ -33,7 +33,7 @@ internal static class HostingExtensions
             .AddConfigurationStore(options =>
             {
                 options.ConfigureDbContext = b =>
-                    b.UseSqlite(connectionString, dbOpts => dbOpts.MigrationsAssembly(typeof(Program).Assembly.FullName));
+                    b.UseSqlServer(connectionStringConfig, dbOpts => dbOpts.MigrationsAssembly(typeof(Program).Assembly.FullName));
             })
             // this is something you will want in production to reduce load on and requests to the DB
             //.AddConfigurationStoreCache()
@@ -42,7 +42,7 @@ internal static class HostingExtensions
             .AddOperationalStore(options =>
             {
                 options.ConfigureDbContext = b =>
-                    b.UseSqlite(connectionString, dbOpts => dbOpts.MigrationsAssembly(typeof(Program).Assembly.FullName));
+                    b.UseSqlServer(connectionStringPersist, dbOpts => dbOpts.MigrationsAssembly(typeof(Program).Assembly.FullName));
 
                 // this enables automatic token cleanup. this is optional.
                 options.EnableTokenCleanup = true;

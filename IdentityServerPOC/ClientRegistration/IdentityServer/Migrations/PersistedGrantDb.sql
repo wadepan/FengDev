@@ -55,31 +55,31 @@ CREATE TABLE "ServerSideSessions" (
     "Data" TEXT NOT NULL
 );
 
-CREATE UNIQUE INDEX "IX_DeviceCodes_DeviceCode" ON "DeviceCodes" ("DeviceCode");
+--CREATE UNIQUE INDEX "IX_DeviceCodes_DeviceCode" ON "DeviceCodes" ("DeviceCode");
 
-CREATE INDEX "IX_DeviceCodes_Expiration" ON "DeviceCodes" ("Expiration");
+--CREATE INDEX "IX_DeviceCodes_Expiration" ON "DeviceCodes" ("Expiration");
 
-CREATE INDEX "IX_Keys_Use" ON "Keys" ("Use");
+--CREATE INDEX "IX_Keys_Use" ON "Keys" ("Use");
 
-CREATE INDEX "IX_PersistedGrants_ConsumedTime" ON "PersistedGrants" ("ConsumedTime");
+--CREATE INDEX "IX_PersistedGrants_ConsumedTime" ON "PersistedGrants" ("ConsumedTime");
 
-CREATE INDEX "IX_PersistedGrants_Expiration" ON "PersistedGrants" ("Expiration");
+--CREATE INDEX "IX_PersistedGrants_Expiration" ON "PersistedGrants" ("Expiration");
 
-CREATE UNIQUE INDEX "IX_PersistedGrants_Key" ON "PersistedGrants" ("Key");
+--CREATE UNIQUE INDEX "IX_PersistedGrants_Key" ON "PersistedGrants" ("Key");
 
-CREATE INDEX "IX_PersistedGrants_SubjectId_ClientId_Type" ON "PersistedGrants" ("SubjectId", "ClientId", "Type");
+--CREATE INDEX "IX_PersistedGrants_SubjectId_ClientId_Type" ON "PersistedGrants" ("SubjectId", "ClientId", "Type");
 
-CREATE INDEX "IX_PersistedGrants_SubjectId_SessionId_Type" ON "PersistedGrants" ("SubjectId", "SessionId", "Type");
+--CREATE INDEX "IX_PersistedGrants_SubjectId_SessionId_Type" ON "PersistedGrants" ("SubjectId", "SessionId", "Type");
 
-CREATE INDEX "IX_ServerSideSessions_DisplayName" ON "ServerSideSessions" ("DisplayName");
+--CREATE INDEX "IX_ServerSideSessions_DisplayName" ON "ServerSideSessions" ("DisplayName");
 
-CREATE INDEX "IX_ServerSideSessions_Expires" ON "ServerSideSessions" ("Expires");
+--CREATE INDEX "IX_ServerSideSessions_Expires" ON "ServerSideSessions" ("Expires");
 
-CREATE UNIQUE INDEX "IX_ServerSideSessions_Key" ON "ServerSideSessions" ("Key");
+--CREATE UNIQUE INDEX "IX_ServerSideSessions_Key" ON "ServerSideSessions" ("Key");
 
-CREATE INDEX "IX_ServerSideSessions_SessionId" ON "ServerSideSessions" ("SessionId");
+--CREATE INDEX "IX_ServerSideSessions_SessionId" ON "ServerSideSessions" ("SessionId");
 
-CREATE INDEX "IX_ServerSideSessions_SubjectId" ON "ServerSideSessions" ("SubjectId");
+--CREATE INDEX "IX_ServerSideSessions_SubjectId" ON "ServerSideSessions" ("SubjectId");
 
 INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
 VALUES ('20230509053621_Grants', '6.0.0');
