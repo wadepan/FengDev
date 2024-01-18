@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace SCUSIdentityServerSQL.Pages.Admin
 {
     [SecurityHeaders]
-    //[Authorize]
+    [Authorize]
     public class IndexModel : PageModel
     {
         public void OnGet()

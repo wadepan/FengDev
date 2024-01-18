@@ -29,33 +29,17 @@ namespace SCUSIdentityServerSQL
                     new TestUser
                     {
                         SubjectId = "1",
-                        Username = "alice",
-                        Password = "alice",
+                        Username = "admin",
+                        Password = "Password1!",
                         Claims =
                         {
-                            new Claim(JwtClaimTypes.Name, "Alice Smith"),
-                            new Claim(JwtClaimTypes.GivenName, "Alice"),
-                            new Claim(JwtClaimTypes.FamilyName, "Smith"),
-                            new Claim(JwtClaimTypes.Email, "AliceSmith@email.com"),
+                            new Claim(JwtClaimTypes.Name, "Admin"),
+                            new Claim(JwtClaimTypes.GivenName, "Admin"),
+                            new Claim(JwtClaimTypes.FamilyName, "Admin"),
+                            new Claim(JwtClaimTypes.Email, "efilingitsupport@scinet.gov"),
                             new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
-                            new Claim(JwtClaimTypes.WebSite, "http://alice.com"),
-                            new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json)
-                        }
-                    },
-                    new TestUser
-                    {
-                        SubjectId = "2",
-                        Username = "bob",
-                        Password = "bob",
-                        Claims =
-                        {
-                            new Claim(JwtClaimTypes.Name, "Bob Smith"),
-                            new Claim(JwtClaimTypes.GivenName, "Bob"),
-                            new Claim(JwtClaimTypes.FamilyName, "Smith"),
-                            new Claim(JwtClaimTypes.Email, "BobSmith@email.com"),
-                            new Claim(JwtClaimTypes.EmailVerified, "true", ClaimValueTypes.Boolean),
-                            new Claim(JwtClaimTypes.WebSite, "http://bob.com"),
-                            new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json)
+                            //new Claim(JwtClaimTypes.WebSite, "http://alice.com"),
+                            //new Claim(JwtClaimTypes.Address, JsonSerializer.Serialize(address), IdentityServerConstants.ClaimValueTypes.Json)
                         }
                     }
                 };
