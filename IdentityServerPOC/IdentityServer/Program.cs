@@ -17,11 +17,16 @@ try
         .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {SourceContext}{NewLine}{Message:lj}{NewLine}{Exception}{NewLine}")
         .Enrich.FromLogContext()
         .ReadFrom.Configuration(ctx.Configuration));
-   
+    var services = builder.Services; 
+    //services.AddRazorPages();
+    services.AddIdentityServer();
+    services.AddMvc();
+    services.AddControllers();
     var app = builder
         .ConfigureServices()
         .ConfigurePipeline();
-    
+    app.UseRouting();
+    app.UseMvc();
     app.Run();
 }
 catch (Exception ex)

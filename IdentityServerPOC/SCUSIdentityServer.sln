@@ -7,6 +7,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Configuration", "Configuration\Configuration.csproj", "{BFD9F633-EEF8-45FF-9756-C413F71B282A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDcrClient", "ConsoleDcrClient\ConsoleDcrClient.csproj", "{B0612F1A-13DE-40DA-A119-E699F038EEDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SCUSIdentityServerSQL", "SCUSIdentityServerSQL\SCUSIdentityServerSQL.csproj", "{DA94E528-BC1F-477E-B78B-F34E75163E16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +25,19 @@ Global
 		{BFD9F633-EEF8-45FF-9756-C413F71B282A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFD9F633-EEF8-45FF-9756-C413F71B282A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFD9F633-EEF8-45FF-9756-C413F71B282A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0612F1A-13DE-40DA-A119-E699F038EEDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0612F1A-13DE-40DA-A119-E699F038EEDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0612F1A-13DE-40DA-A119-E699F038EEDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0612F1A-13DE-40DA-A119-E699F038EEDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA94E528-BC1F-477E-B78B-F34E75163E16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA94E528-BC1F-477E-B78B-F34E75163E16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA94E528-BC1F-477E-B78B-F34E75163E16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA94E528-BC1F-477E-B78B-F34E75163E16}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {08FBC425-1351-4D47-AF5F-0E2DF59F57AF}
 	EndGlobalSection
 EndGlobal
